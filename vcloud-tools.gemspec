@@ -2,7 +2,7 @@
 
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'vcloud/version'
+require 'vcloud/net_launcher/version'
 
 Gem::Specification.new do |s|
   s.name        = 'vcloud-tools'

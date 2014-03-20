@@ -38,7 +38,7 @@ class App
     #{examples_dir}
   "
 
-  version Vcloud::VERSION
+  version Vcloud::NetLauncher::VERSION
 
   go!
 end
