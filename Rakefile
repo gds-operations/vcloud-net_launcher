@@ -36,4 +36,4 @@ RSpec::Core::RakeTask.new('integration') do |t|
   t.pattern = FileList['spec/integration/**/*_spec.rb']
 end
 
-task :default => [:spec,:features]
+task :default => [:integration]
