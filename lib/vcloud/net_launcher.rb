@@ -14,13 +14,11 @@ require 'vcloud/core'
 require 'vcloud/net_launcher/net_launch'
 
 module Vcloud
+  module NetLauncher
 
-  def self.logger
-    @logger ||= Logger.new(STDOUT)
+    def self.logger
+      @logger ||= Logger.new(STDOUT)
+    end
+
   end
-
-  def self.clone_object object
-    Marshal.load(Marshal.dump(object))
-  end
-
 end
