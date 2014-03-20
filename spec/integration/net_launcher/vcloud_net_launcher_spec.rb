@@ -4,7 +4,7 @@ require 'erb'
 
 module Vcloud
   module NetLauncher
-    describe NetLaunch, :take_too_long => true do
+    describe NetLaunch do
 
       context 'with minimum input setup' do
 
