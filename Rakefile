@@ -32,19 +32,8 @@ RSpec::Core::RakeTask.new(:spec) do |task|
   task.pattern = FileList['spec/vcloud/**/*_spec.rb']
 end
 
-RSpec::Core::RakeTask.new('integration:quick') do |t|
-  t.rspec_opts = %w(--tag ~take_too_long)
-  t.pattern = FileList['spec/integration/**/*_spec.rb']
-end
-
-RSpec::Core::RakeTask.new('integration:all') do |t|
+RSpec::Core::RakeTask.new('integration') do |t|
   t.pattern = FileList['spec/integration/**/*_spec.rb']
 end
 
 task :default => [:spec,:features]
-
-Jeweler::Tasks.new do |gem|
-  gem.name = 'vcloud-tools'
-  gem.version = Vcloud::VERSION
-end
-Jeweler::RubygemsDotOrgTasks.new
