@@ -9,3 +9,5 @@ bundle install --path "${HOME}/bundles/${JOB_NAME}"
 export FOG_RC=fog_integration_test.config
 bundle exec rake integration
 rm fog_integration_test.config
+
+bundle exec rake publish_gem
