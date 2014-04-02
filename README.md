@@ -135,4 +135,5 @@ The easiest thing to do is create a local shell script called
 Then run this before you run the integration tests.
 
 [example_yaml]: ../examples/vcloud-net-launch/
+[fog]: http://fog.io/
 
