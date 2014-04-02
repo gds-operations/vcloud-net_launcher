@@ -24,7 +24,7 @@ The form to run the command is
 
 ### Credentials
 
-VCloud-tools is based around [fog]. To use it you'll need to give it credentials that allow it to talk to a VMware
+vCloud Net Launcher is based around [fog]. To use it you'll need to give it credentials that allow it to talk to a VMware
 environment. Fog offers two ways to do this.
 
 #### 1. Create a `.fog` file containing your credentials
