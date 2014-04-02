@@ -20,7 +20,7 @@ Or install it yourself as:
 ## Usage
 
 The form to run the command is
-    bundle exec vcloud-net-launch networks.yaml
+    vcloud-net-launch networks.yaml
 
 ### Credentials
 
@@ -52,7 +52,7 @@ Unfortunately current usage of fog requires the password in this file. Multiple 
 
 You can then pass the `FOG_CREDENTIAL` environment variable at the start of your command. The value of the `FOG_CREDENTIAL` environment variable is the name of the credential set in your fog file which you wish to use.  For instance:
 
-    FOG_CREDENTIAL=test2 bundle exec vcloud-net-launch networks.yaml
+    FOG_CREDENTIAL=test2 vcloud-net-launch networks.yaml
 
 To understand more about `.fog` files, visit the 'Credentials' section here => http://fog.io/about/getting_started.html.
 
@@ -80,7 +80,7 @@ From the headers returned, select the header below
 
 Use token as ENV var FOG_VCLOUD_TOKEN
 
-    FOG_VCLOUD_TOKEN=AAAABBBBBCCCCCCDDDDDDEEEEEEFFFFF= bundle exec ...
+    FOG_VCLOUD_TOKEN=AAAABBBBBCCCCCCDDDDDDEEEEEEFFFFF= vcloud-net-launch networks.yaml
 
 
 ##Supports
