@@ -19,9 +19,17 @@ Or install it yourself as:
 
 ## Usage
 
-vCloud-tools uses Fog.
+The form to run the command is
+    vcloud-net-launch networks.yaml
 
-To use it you need a `.fog` file in your home directory.
+### Credentials
+
+vCloud Net Launcher is based around [fog]. To use it you'll need to give it credentials that allow it to talk to a VMware
+environment. Fog offers two ways to do this.
+
+#### 1. Create a `.fog` file containing your credentials
+
+To use this method, you need a `.fog` file in your home directory.
 
 For example:
 
@@ -44,9 +52,35 @@ Unfortunately current usage of fog requires the password in this file. Multiple 
 
 You can then pass the `FOG_CREDENTIAL` environment variable at the start of your command. The value of the `FOG_CREDENTIAL` environment variable is the name of the credential set in your fog file which you wish to use.  For instance:
 
-    FOG_CREDENTIAL=test2 vcloud-net-launch node.yaml
+    FOG_CREDENTIAL=test2 vcloud-net-launch networks.yaml
+
+To understand more about `.fog` files, visit the 'Credentials' section here => http://fog.io/about/getting_started.html.
 
 An example configuration file is located in [examples/vcloud-net-launch][example_yaml]
+
+#### 2. Log on externally and supply your session token
+
+You can choose to log on externally by interacting independently with the API and supplying your session token to the
+tool by setting the `FOG_VCLOUD_TOKEN` ENV variable. This option reduces the risk footprint by allowing the user to
+store their credentials in safe storage. The default token lifetime is '30 minutes idle' - any activity extends the life by another 30 mins.
+
+A basic example of this would be the following:
+
+    curl
+       -D-
+       -d ''
+       -H 'Accept: application/*+xml;version=5.1' -u '<user>@<org>'
+       https://host.com/api/sessions
+
+This will prompt for your password.
+
+From the headers returned, select the header below
+
+     x-vcloud-authorization: AAAABBBBBCCCCCCDDDDDDEEEEEEFFFFF=
+
+Use token as ENV var FOG_VCLOUD_TOKEN
+
+    FOG_VCLOUD_TOKEN=AAAABBBBBCCCCCCDDDDDDEEEEEEFFFFF= vcloud-net-launch networks.yaml
 
 
 ##Supports
@@ -101,4 +135,5 @@ The easiest thing to do is create a local shell script called
 Then run this before you run the integration tests.
 
 [example_yaml]: ../examples/vcloud-net-launch/
+[fog]: http://fog.io/
 
