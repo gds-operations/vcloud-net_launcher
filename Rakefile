@@ -1,12 +1,8 @@
 require 'cucumber/rake/task'
 require 'rspec/core/rake_task'
+require 'gem_publisher'
 
-CUKE_RESULTS = 'results.html'
-
-Cucumber::Rake::Task.new(:features) do |t|
-  t.cucumber_opts = "features --format html -o #{CUKE_RESULTS} --format pretty --no-source -x"
-  t.fork = false
-end
+task :default => [:feature]
 
 RSpec::Core::RakeTask.new(:spec) do |task|
   # Set a bogus Fog credential, otherwise it's possible for the unit
@@ -16,13 +12,15 @@ RSpec::Core::RakeTask.new(:spec) do |task|
   task.pattern = FileList['spec/vcloud/**/*_spec.rb']
 end
 
-RSpec::Core::RakeTask.new('integration') do |t|
+Cucumber::Rake::Task.new(:feature) do |t|
+  t.cucumber_opts = "--format pretty --no-source"
+  t.fork = false
+end
+
+RSpec::Core::RakeTask.new(:integration) do |t|
   t.pattern = FileList['spec/integration/**/*_spec.rb']
 end
 
-task :default => [:integration]
-
-require "gem_publisher"
 task :publish_gem do |t|
   gem = GemPublisher.publish_if_updated("vcloud-net_launcher.gemspec", :rubygems)
   puts "Published #{gem}" if gem
