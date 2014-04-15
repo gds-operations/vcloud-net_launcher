@@ -12,12 +12,12 @@ RSpec::Core::RakeTask.new(:spec) do |task|
   task.pattern = FileList['spec/vcloud/**/*_spec.rb']
 end
 
-Cucumber::Rake::Task.new(:features) do |t|
+Cucumber::Rake::Task.new(:feature) do |t|
   t.cucumber_opts = "--format pretty --no-source"
   t.fork = false
 end
 
-RSpec::Core::RakeTask.new('integration') do |t|
+RSpec::Core::RakeTask.new(:integration) do |t|
   t.pattern = FileList['spec/integration/**/*_spec.rb']
 end
 
