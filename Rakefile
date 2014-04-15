@@ -1,10 +1,8 @@
 require 'cucumber/rake/task'
 require 'rspec/core/rake_task'
 
-CUKE_RESULTS = 'results.html'
-
 Cucumber::Rake::Task.new(:features) do |t|
-  t.cucumber_opts = "features --format html -o #{CUKE_RESULTS} --format pretty --no-source -x"
+  t.cucumber_opts = "--format pretty --no-source"
   t.fork = false
 end
 
