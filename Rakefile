@@ -2,7 +2,7 @@ require 'cucumber/rake/task'
 require 'rspec/core/rake_task'
 require 'gem_publisher'
 
-task :default => [:integration]
+task :default => [:feature]
 
 RSpec::Core::RakeTask.new(:spec) do |task|
   # Set a bogus Fog credential, otherwise it's possible for the unit
