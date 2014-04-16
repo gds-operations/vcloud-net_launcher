@@ -1,7 +1,8 @@
 vCloud Net Launcher
 ===================
 
-A tool that takes a YAML configuration file describing vCloud networks and configures each of them.
+A tool that takes a YAML configuration file describing vCloud networks and
+configures each of them.
 
 ## Installation
 
@@ -24,7 +25,8 @@ The form to run the command is
 
 ### Credentials
 
-vCloud Net Launcher is based around [fog]. To use it you'll need to give it credentials that allow it to talk to a VMware
+vCloud Net Launcher is based around [fog]. To use it you'll need to give it
+credentials that allow it to talk to a VMware
 environment. Fog offers two ways to do this.
 
 #### 1. Create a `.fog` file containing your credentials
@@ -38,7 +40,9 @@ For example:
       vcloud_director_password: 'password'
       vcloud_director_host: 'host.api.example.com'
 
-Unfortunately current usage of fog requires the password in this file. Multiple sets of credentials can be specified in the fog file, using the following format:
+Unfortunately current usage of fog requires the password in this file. Multiple
+sets of credentials can be specified in the fog file, using the following
+format:
 
     test:
       vcloud_director_username: 'username@org_name'
@@ -50,19 +54,25 @@ Unfortunately current usage of fog requires the password in this file. Multiple 
       vcloud_director_password: 'password'
       vcloud_director_host: 'host.api.vendor.net'
 
-You can then pass the `FOG_CREDENTIAL` environment variable at the start of your command. The value of the `FOG_CREDENTIAL` environment variable is the name of the credential set in your fog file which you wish to use.  For instance:
+You can then pass the `FOG_CREDENTIAL` environment variable at the start of your
+command. The value of the `FOG_CREDENTIAL` environment variable is the name of
+the credential set in your fog file which you wish to use.  For instance:
 
     FOG_CREDENTIAL=test2 vcloud-net-launch networks.yaml
 
-To understand more about `.fog` files, visit the 'Credentials' section here => http://fog.io/about/getting_started.html.
+To understand more about `.fog` files, visit the 'Credentials' section here
+=> http://fog.io/about/getting_started.html.
 
-An example configuration file is located in [examples/vcloud-net-launch][example_yaml]
+An example configuration file is located in
+[examples/vcloud-net-launch][example_yaml]
 
 #### 2. Log on externally and supply your session token
 
-You can choose to log on externally by interacting independently with the API and supplying your session token to the
-tool by setting the `FOG_VCLOUD_TOKEN` ENV variable. This option reduces the risk footprint by allowing the user to
-store their credentials in safe storage. The default token lifetime is '30 minutes idle' - any activity extends the life by another 30 mins.
+You can choose to log on externally by interacting independently with the API
+and supplying your session token to the tool by setting the `FOG_VCLOUD_TOKEN`
+ENV variable. This option reduces the risk footprint by allowing the user to
+store their credentials in safe storage. The default token lifetime is '30
+minutes idle' - any activity extends the life by another 30 mins.
 
 A basic example of this would be the following:
 
@@ -95,7 +105,8 @@ Use token as ENV var FOG_VCLOUD_TOKEN
 
 Limitations
 
-* Not currently reentrant - if the process errors part of the way through, the previously applied network config
+* Not currently reentrant - if the process errors part of the way through, the
+previously applied network config
 will need to be removed from the file before it is corrected and run again.
 
 ## Contributing
@@ -108,7 +119,9 @@ will need to be removed from the file before it is corrected and run again.
 
 ## Other settings
 
-vCloud Net Launcher uses vCloud Core. If you want to use the latest version of vCloud Core, or a local version, you can export some variables. See the Gemfile for details.
+vCloud Net Launcher uses vCloud Core. If you want to use the latest version of
+vCloud Core, or a local version, you can export some variables. See the Gemfile
+for details.
 
 ## Testing
 
