@@ -110,6 +110,12 @@ will need to be removed from the file before it is corrected and run again.
 
 vCloud Net Launcher uses vCloud Core. If you want to use the latest version of vCloud Core, or a local version, you can export some variables. See the Gemfile for details.
 
+## Debugging
+
+`export EXCON_DEBUG=true` - this will print out the API requests and responses.
+
+`export DEBUG=true` - this will show you the stack trace when there is an exception instead of just the message.
+
 ## Testing
 
 Default target: `bundle exec rake` runs the integration tests.
