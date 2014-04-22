@@ -128,6 +128,8 @@ If you want to be sure you are pinning to 5.1, or use 5.5, you can set the API v
 
 ## Testing
 
+Default target: `bundle exec rake` runs the cucumber features tests.
+
 `bundle exec rake integration` runs the integration tests.
 
 `bundle exec rake features` runs the cucumber features tests.
