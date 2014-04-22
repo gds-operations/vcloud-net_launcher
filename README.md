@@ -112,7 +112,12 @@ vCloud Net Launcher uses vCloud Core. If you want to use the latest version of v
 
 ## Testing
 
-Default target: `bundle exec rake` runs the integration tests.
+`bundle exec rake integration` runs the integration tests.
+
+`bundle exec rake features` runs the cucumber features tests.
+
+There are currently no unit tests here, though the bulk of the logic is
+tested in vcloud-core.
 
 You need access to a suitable vCloud Director organization to run the
 integration tests. It is not necessarily safe to run them against an existing
