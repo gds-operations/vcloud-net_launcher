@@ -1,3 +1,9 @@
+## 0.1.0 (2014-04-30)
+
+  Features:
+
+  - Depend on version 0.2.0 of vcloud-core which introduces breaking changes to namespacing
+
 ## 0.0.3 (2014-05-01)
 
   - Use pessimistic version dependency for vcloud-core

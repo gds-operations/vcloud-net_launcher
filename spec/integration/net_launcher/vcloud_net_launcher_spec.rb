@@ -60,7 +60,7 @@ module Vcloud
       end
 
       def find_network(network_name)
-        query = Vcloud::QueryRunner.new()
+        query = Vcloud::Core::QueryRunner.new()
         query.run('orgNetwork', :filter => "name==#{network_name}")
       end
 
