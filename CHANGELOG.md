@@ -1,3 +1,9 @@
+## Current (2014-04-30)
+
+  Features:
+
+  - Depend on version 0.1.0 of vcloud-core which introduces breaking changes to Vcloud::QueryRunner namespacing
+
 ## 0.0.2 (2014-04-22)
 
   Bugfixes:
