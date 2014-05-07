@@ -104,14 +104,11 @@ If you want to be sure you are pinning to 5.1, or use 5.5, you can set the API v
 
 ## Testing
 
-Default target: `bundle exec rake` runs the cucumber features tests.
+Default target: `bundle exec rake` runs the unit and cucumber features tests.
 
 `bundle exec rake integration` runs the integration tests.
 
 `bundle exec rake features` runs the cucumber features tests.
-
-There are currently no unit tests here, though the bulk of the logic is
-tested in vcloud-core.
 
 You need access to a suitable vCloud Director organization to run the
 integration tests. It is not necessarily safe to run them against an existing
