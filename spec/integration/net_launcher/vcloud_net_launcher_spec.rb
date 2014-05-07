@@ -43,7 +43,7 @@ module Vcloud
             File.delete @minimum_data_yaml
             fog_interface = Vcloud::Fog::ServiceInterface.new
             provisioned_network_id = @found_networks[0][:href].split('/').last
-            fog_interface.delete_network(provisioned_network_id).should eq(true)
+            fog_interface.delete_network(provisioned_network_id).should be(true)
           end
         end
 
