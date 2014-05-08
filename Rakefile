@@ -2,7 +2,7 @@ require 'cucumber/rake/task'
 require 'rspec/core/rake_task'
 require 'gem_publisher'
 
-task :default => [:spec, :features]
+task :default => [:rubocop, :spec, :features]
 
 RSpec::Core::RakeTask.new(:spec) do |task|
   # Set a bogus Fog credential, otherwise it's possible for the unit
@@ -21,7 +21,12 @@ RSpec::Core::RakeTask.new(:integration) do |t|
   t.pattern = FileList['spec/integration/**/*_spec.rb']
 end
 
-task :publish_gem do |t|
+task :publish_gem do
   gem = GemPublisher.publish_if_updated("vcloud-net_launcher.gemspec", :rubygems)
   puts "Published #{gem}" if gem
+end
+
+require 'rubocop/rake_task'
+Rubocop::RakeTask.new(:rubocop) do |task|
+  task.options = ['--lint']
 end

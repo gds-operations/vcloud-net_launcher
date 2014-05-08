@@ -15,11 +15,11 @@ module Vcloud
           Vcloud::NetLauncher::NetLaunch.new.run(@minimum_data_yaml)
 
           @found_networks = find_network(test_data[:network_name])
-          @found_networks.length.should == 1
+          @found_networks.length.should eq(1)
           provisioned_network = @found_networks[0]
-          provisioned_network[:gateway].should == test_data[:gateway]
-          provisioned_network[:netmask].should == test_data[:netmask]
-          provisioned_network[:isLinked].should == 'false'
+          provisioned_network[:gateway].should eq(test_data[:gateway])
+          provisioned_network[:netmask].should eq(test_data[:netmask])
+          provisioned_network[:isLinked].should eq('false')
         end
 
         it 'should create an nat routed network' do
@@ -31,11 +31,11 @@ module Vcloud
 
           @found_networks = find_network(test_data[:network_name])
 
-          @found_networks.length.should == 1
+          @found_networks.length.should eq(1)
           provisioned_network = @found_networks[0]
-          provisioned_network[:gateway].should == test_data[:gateway]
-          provisioned_network[:netmask].should == test_data[:netmask]
-          provisioned_network[:isLinked].should == 'true'
+          provisioned_network[:gateway].should eq(test_data[:gateway])
+          provisioned_network[:netmask].should eq(test_data[:netmask])
+          provisioned_network[:isLinked].should eq('true')
         end
 
         after(:each) do
@@ -43,7 +43,7 @@ module Vcloud
             File.delete @minimum_data_yaml
             fog_interface = Vcloud::Fog::ServiceInterface.new
             provisioned_network_id = @found_networks[0][:href].split('/').last
-            fog_interface.delete_network(provisioned_network_id).should == true
+            fog_interface.delete_network(provisioned_network_id).should be(true)
           end
         end
 

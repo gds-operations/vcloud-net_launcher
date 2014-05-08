@@ -2,30 +2,36 @@ require 'spec_helper'
 
 describe Vcloud::NetLauncher::NetLaunch do
   context "ConfigLoader returns three different networks" do
-    let!(:network1) {{
-      :name         => 'Network 1',
-      :vdc_name     => 'TestVDC',
-      :fence_mode   => 'isolated',
-      :netmask      => '255.255.255.0',
-      :gateway      => '10.0.1.1',
-      :edge_gateway => 'TestVSE',
-    }}
-    let!(:network2) {{
-      :name         => 'Network 2',
-      :vdc_name     => 'TestVDC',
-      :fence_mode   => 'natRouted',
-      :netmask      => '255.255.0.0',
-      :gateway      => '10.0.2.1',
-      :edge_gateway => 'TestVSE',
-    }}
-    let!(:network3) {{
-      :name         => 'Network 3',
-      :vdc_name     => 'TestVDC',
-      :fence_mode   => 'natRouted',
-      :netmask      => '355.255.0.0',
-      :gateway      => '10.0.3.1',
-      :edge_gateway => 'TestVSE',
-    }}
+    let!(:network1) {
+      {
+        :name         => 'Network 1',
+        :vdc_name     => 'TestVDC',
+        :fence_mode   => 'isolated',
+        :netmask      => '255.255.255.0',
+        :gateway      => '10.0.1.1',
+        :edge_gateway => 'TestVSE',
+      }
+    }
+    let!(:network2) {
+      {
+        :name         => 'Network 2',
+        :vdc_name     => 'TestVDC',
+        :fence_mode   => 'natRouted',
+        :netmask      => '255.255.0.0',
+        :gateway      => '10.0.2.1',
+        :edge_gateway => 'TestVSE',
+      }
+    }
+    let!(:network3) {
+      {
+        :name         => 'Network 3',
+        :vdc_name     => 'TestVDC',
+        :fence_mode   => 'natRouted',
+        :netmask      => '355.255.0.0',
+        :gateway      => '10.0.3.1',
+        :edge_gateway => 'TestVSE',
+      }
+    }
 
     before(:each) do
       config_loader = double(:config_loader)
@@ -77,13 +83,15 @@ describe Vcloud::NetLauncher::NetLaunch do
   end
 
   context "ConfigLoader returns one network without :fence_mode set" do
-    let!(:network_without_fence_mode) {{
-      :name         => 'Network w/o fence_mode',
-      :vdc_name     => 'TestVDC',
-      :netmask      => '255.255.255.0',
-      :gateway      => '10.0.1.1',
-      :edge_gateway => 'TestVSE',
-    }}
+    let!(:network_without_fence_mode) {
+      {
+        :name         => 'Network w/o fence_mode',
+        :vdc_name     => 'TestVDC',
+        :netmask      => '255.255.255.0',
+        :gateway      => '10.0.1.1',
+        :edge_gateway => 'TestVSE',
+      }
+    }
 
     before(:each) do
       config_loader = double(:config_loader)

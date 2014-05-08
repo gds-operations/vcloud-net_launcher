@@ -19,7 +19,7 @@ module Vcloud
           net_config[:fence_mode] ||= 'isolated'
           Vcloud::Core.logger.info("Provisioning orgVdcNetwork #{net_config[:name]}.")
           begin
-            net = Vcloud::Core::OrgVdcNetwork.provision(net_config)
+            Vcloud::Core::OrgVdcNetwork.provision(net_config)
           rescue RuntimeError => e
             Vcloud::Core.logger.error("Could not provision orgVdcNetwork: #{e.message}")
             raise
