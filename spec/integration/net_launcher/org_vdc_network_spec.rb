@@ -44,7 +44,7 @@ describe Vcloud::Core::OrgVdcNetwork do
     end
 
     it 'should have a :netmask attribute' do
-      expect(@net.vcloud_attributes[:gateway]).to eq(@config[:netmask])
+      expect(@net.vcloud_attributes[:netmask]).to eq(@config[:netmask])
     end
 
     it 'should have a :dns1 attribute' do
@@ -110,7 +110,7 @@ describe Vcloud::Core::OrgVdcNetwork do
     end
 
     it 'should have a :netmask attribute' do
-      expect(@net.vcloud_attributes[:gateway]).to eq(@config[:netmask])
+      expect(@net.vcloud_attributes[:netmask]).to eq(@config[:netmask])
     end
 
     it 'should have a :dns1 attribute' do
