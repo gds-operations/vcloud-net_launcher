@@ -56,17 +56,8 @@ describe Vcloud::Core::OrgVdcNetwork do
     end
 
     it 'should have an :ip_ranges list with each of our ranges' do
-      expect(@net.vcloud_attributes[:ip_ranges].size).to eq(@config[:ip_ranges].size)
-      expect(
-        @net.vcloud_attributes[:ip_ranges].detect do |ip_range|
-          ip_range == {:start_address=>"10.88.11.100", :end_address=>"10.88.11.150"}
-        end
-      ).to be_true
-      expect(
-        @net.vcloud_attributes[:ip_ranges].detect do |ip_range|
-          ip_range == {:start_address=>"10.88.11.200", :end_address=>"10.88.11.250"}
-        end
-      ).to be_true
+      expect(@net.vcloud_attributes[:ip_ranges]).
+       to match_array(@config[:ip_ranges])
     end
 
     after(:all) do
@@ -129,17 +120,8 @@ describe Vcloud::Core::OrgVdcNetwork do
     end
 
     it 'should have an :ip_ranges list with each of our ranges' do
-      expect(@net.vcloud_attributes[:ip_ranges].size).to eq(@config[:ip_ranges].size)
-      expect(
-        @net.vcloud_attributes[:ip_ranges].detect do |ip_range|
-          ip_range == {:start_address=>"10.88.11.100", :end_address=>"10.88.11.150"}
-        end
-      ).to be_true
-      expect(
-        @net.vcloud_attributes[:ip_ranges].detect do |ip_range|
-          ip_range == {:start_address=>"10.88.11.200", :end_address=>"10.88.11.250"}
-        end
-      ).to be_true
+      expect(@net.vcloud_attributes[:ip_ranges]).
+        to match_array(@config[:ip_ranges])
     end
 
     after(:all) do
