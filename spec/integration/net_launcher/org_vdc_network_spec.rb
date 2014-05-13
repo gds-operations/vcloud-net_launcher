@@ -36,30 +36,28 @@ describe Vcloud::Core::OrgVdcNetwork do
     end
 
     it 'should have a name' do
-      expect(@net.name) == @config[:name]
+      expect(@net.name).to eq(@config[:name])
     end
 
     it 'should have a :gateway attribute' do
-      expect(@net.vcloud_attributes[:gateway]) == @config[:gateway]
+      expect(@net.vcloud_attributes[:gateway]).to eq(@config[:gateway])
     end
 
     it 'should have a :netmask attribute' do
-      expect(@net.vcloud_attributes[:gateway]) == @config[:netmask]
+      expect(@net.vcloud_attributes[:netmask]).to eq(@config[:netmask])
     end
 
     it 'should have a :dns1 attribute' do
-      expect(@net.vcloud_attributes[:dns1]) == @config[:dns1]
+      expect(@net.vcloud_attributes[:dns1]).to eq(@config[:dns1])
     end
 
     it 'should have a :dns2 attribute' do
-      expect(@net.vcloud_attributes[:dns2]) == @config[:dns2]
+      expect(@net.vcloud_attributes[:dns2]).to eq(@config[:dns2])
     end
 
-    it 'should have an :ip_ranges attribute' do
-      expect(@net.vcloud_attributes[:ip_ranges]) == [
-        {:start_address=>"10.88.11.200", :end_address=>"10.88.11.250"},
-        {:start_address=>"10.88.11.100", :end_address=>"10.88.11.150"}
-      ]
+    it 'should have an :ip_ranges list with each of our ranges' do
+      expect(@net.vcloud_attributes[:ip_ranges]).
+       to match_array(@config[:ip_ranges])
     end
 
     after(:all) do
@@ -102,30 +100,28 @@ describe Vcloud::Core::OrgVdcNetwork do
     end
 
     it 'should have a name' do
-      expect(@net.name) == @config[:name]
+      expect(@net.name).to eq(@config[:name])
     end
 
     it 'should have a :gateway attribute' do
-      expect(@net.vcloud_attributes[:gateway]) == @config[:gateway]
+      expect(@net.vcloud_attributes[:gateway]).to eq(@config[:gateway])
     end
 
     it 'should have a :netmask attribute' do
-      expect(@net.vcloud_attributes[:gateway]) == @config[:netmask]
+      expect(@net.vcloud_attributes[:netmask]).to eq(@config[:netmask])
     end
 
     it 'should have a :dns1 attribute' do
-      expect(@net.vcloud_attributes[:dns1]) == @config[:dns1]
+      expect(@net.vcloud_attributes[:dns1]).to eq(@config[:dns1])
     end
 
     it 'should have a :dns2 attribute' do
-      expect(@net.vcloud_attributes[:dns2]) == @config[:dns2]
+      expect(@net.vcloud_attributes[:dns2]).to eq(@config[:dns2])
     end
 
-    it 'should have an :ip_ranges attribute' do
-      expect(@net.vcloud_attributes[:ip_ranges]) == [
-        {:start_address=>"10.88.11.200", :end_address=>"10.88.11.250"},
-        {:start_address=>"10.88.11.100", :end_address=>"10.88.11.150"}
-      ]
+    it 'should have an :ip_ranges list with each of our ranges' do
+      expect(@net.vcloud_attributes[:ip_ranges]).
+        to match_array(@config[:ip_ranges])
     end
 
     after(:all) do
