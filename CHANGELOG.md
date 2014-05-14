@@ -1,3 +1,9 @@
+## 0.2.0 (2014-05-14)
+
+Features:
+
+  - Depend on version 0.3.0 of vcloud-core which introduces breaking changes to OrgVdcNetwork
+
 ## 0.1.0 (2014-04-30)
 
 Features:
