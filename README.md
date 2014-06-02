@@ -74,6 +74,9 @@ Limitations
 * Not currently reentrant - if the process errors part of the way through, the previously applied network config
 will need to be removed from the file before it is corrected and run again.
 
+* No support for deleting networks. If you need to reconfigure a network, delete it first using the vCloud Director
+GUI and re-run `vcloud-net-launch`.
+
 ## Contributing
 
 1. Fork it
