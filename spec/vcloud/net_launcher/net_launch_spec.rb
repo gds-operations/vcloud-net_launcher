@@ -106,7 +106,7 @@ describe Vcloud::NetLauncher::NetLaunch do
         :fence_mode => 'isolated',
       })
 
-      network_without_fence_mode.should_not have_key(:fence_mode)
+      expect(network_without_fence_mode).not_to have_key(:fence_mode)
       expect(Vcloud::Core::OrgVdcNetwork).to receive(:provision).with(network_with_fence_mode)
 
       cli_options = {}
