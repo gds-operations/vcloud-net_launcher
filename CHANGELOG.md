@@ -1,3 +1,10 @@
+## 0.3.0 (UNRELEASED)
+
+Features:
+
+  - `vcloud-net-launch --version` now only returns the version string
+      and no usage information.
+
 ## 0.2.0 (2014-05-14)
 
 Features:
