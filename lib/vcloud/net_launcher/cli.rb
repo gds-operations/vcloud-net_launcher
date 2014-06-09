@@ -6,7 +6,7 @@ module Vcloud
 
       def initialize(argv_array)
         @usage_text = nil
-        @net_config_file = nil
+        @config_file = nil
         @options = {
           "mock" => false,
         }
@@ -16,7 +16,7 @@ module Vcloud
 
       def run
         begin
-          Vcloud::NetLauncher::NetLaunch.new.run(@net_config_file, @options)
+          Vcloud::NetLauncher::NetLaunch.new.run(@config_file, @options)
         rescue => error_msg
           $stderr.puts(error_msg)
           exit 1
@@ -38,7 +38,7 @@ module Vcloud
             ))
 
           opts.banner = <<-EOS
-Usage: #{$0} [options] net_config_file
+Usage: #{$0} [options] config_file
 
 vcloud-net-launch takes a configuration describing a vCloud network,
 and tries to make it a reality.
@@ -74,8 +74,8 @@ Example configuration files can be found in:
           exit_error_usage(e)
         end
 
-        exit_error_usage("must supply net_config_file") unless args.size == 1
-        @net_config_file = args.first
+        exit_error_usage("must supply config_file") unless args.size == 1
+        @config_file = args.first
       end
 
       def exit_error_usage(error)

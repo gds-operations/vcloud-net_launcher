@@ -32,7 +32,7 @@ describe Vcloud::NetLauncher::Cli do
   let(:mock_net_launch) {
     double(:net_launch, :run => true)
   }
-  let(:net_config_file) { 'config.yaml' }
+  let(:config_file) { 'config.yaml' }
 
   describe "under normal usage" do
     shared_examples "a good CLI command" do
@@ -40,13 +40,13 @@ describe Vcloud::NetLauncher::Cli do
         expect(Vcloud::NetLauncher::NetLaunch).to receive(:new).
           and_return(mock_net_launch)
         expect(mock_net_launch).to receive(:run).
-          with(net_config_file, cli_options)
+          with(config_file, cli_options)
         expect(subject.exitstatus).to eq(0)
       end
     end
 
     context "when given a single config file" do
-      let(:args) { [ net_config_file ] }
+      let(:args) { [ config_file ] }
       let(:cli_options) {
         {
           "mock" => false,
@@ -57,7 +57,7 @@ describe Vcloud::NetLauncher::Cli do
     end
 
     context "when asked to use mock mode" do
-      let(:args) { [ net_config_file, "--mock" ] }
+      let(:args) { [ config_file, "--mock" ] }
       let(:cli_options) {
         {
           "mock" => true,
@@ -88,7 +88,7 @@ describe Vcloud::NetLauncher::Cli do
       end
 
       it "prints usage and exits normally" do
-        expect(subject.stderr).to match(/\AUsage: \S+ \[options\] net_config_file\n/)
+        expect(subject.stderr).to match(/\AUsage: \S+ \[options\] config_file\n/)
         expect(subject.exitstatus).to eq(0)
       end
     end
@@ -112,13 +112,13 @@ describe Vcloud::NetLauncher::Cli do
     context "when run without any arguments" do
       let(:args) { %w{} }
 
-      it_behaves_like "print usage and exit abnormally", "must supply net_config_file"
+      it_behaves_like "print usage and exit abnormally", "must supply config_file"
     end
 
     context "when given multiple config files" do
       let(:args) { %w{one.yaml two.yaml} }
 
-      it_behaves_like "print usage and exit abnormally", "must supply net_config_file"
+      it_behaves_like "print usage and exit abnormally", "must supply config_file"
     end
 
     context "when given an unrecognised argument" do
