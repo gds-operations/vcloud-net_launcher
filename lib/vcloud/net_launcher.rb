@@ -13,3 +13,4 @@ require 'vcloud/core'
 
 require 'vcloud/net_launcher/cli'
 require 'vcloud/net_launcher/net_launch'
+require 'vcloud/net_launcher/schema/net_launch'
