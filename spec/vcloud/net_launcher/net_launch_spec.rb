@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 describe Vcloud::NetLauncher::NetLaunch do
+  let(:cli_options) { {} }
+
   context "ConfigLoader returns three different networks" do
     let(:network1) {
       {
@@ -46,7 +48,6 @@ describe Vcloud::NetLauncher::NetLaunch do
       expect(Vcloud::Core::OrgVdcNetwork).to receive(:provision).with(network2)
       expect(Vcloud::Core::OrgVdcNetwork).to receive(:provision).with(network3)
 
-      cli_options = {}
       subject.run('input_config_yaml', cli_options)
     end
 
@@ -56,7 +57,6 @@ describe Vcloud::NetLauncher::NetLaunch do
         and_raise(RuntimeError.new('Did not successfully create orgVdcNetwork'))
       expect(Vcloud::Core::OrgVdcNetwork).not_to receive(:provision).with(network3)
 
-      cli_options = {}
       expect {
         Vcloud::NetLauncher::NetLaunch.new.run('input_config_yaml', cli_options)
       }.to raise_error(RuntimeError, 'Did not successfully create orgVdcNetwork')
@@ -67,7 +67,6 @@ describe Vcloud::NetLauncher::NetLaunch do
         expect(Fog).to_not receive(:mock!)
         expect(Vcloud::Core::OrgVdcNetwork).to receive(:provision).exactly(3).times
 
-        cli_options = {}
         subject.run('input_config_yaml', cli_options)
       end
 
@@ -109,7 +108,6 @@ describe Vcloud::NetLauncher::NetLaunch do
       expect(network_without_fence_mode).not_to have_key(:fence_mode)
       expect(Vcloud::Core::OrgVdcNetwork).to receive(:provision).with(network_with_fence_mode)
 
-      cli_options = {}
       subject.run('input_config_yaml', cli_options)
     end
   end
