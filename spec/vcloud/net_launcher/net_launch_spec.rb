@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Vcloud::NetLauncher::NetLaunch do
   context "ConfigLoader returns three different networks" do
-    let!(:network1) {
+    let(:network1) {
       {
         :name         => 'Network 1',
         :vdc_name     => 'TestVDC',
@@ -12,7 +12,7 @@ describe Vcloud::NetLauncher::NetLaunch do
         :edge_gateway => 'TestVSE',
       }
     }
-    let!(:network2) {
+    let(:network2) {
       {
         :name         => 'Network 2',
         :vdc_name     => 'TestVDC',
@@ -22,7 +22,7 @@ describe Vcloud::NetLauncher::NetLaunch do
         :edge_gateway => 'TestVSE',
       }
     }
-    let!(:network3) {
+    let(:network3) {
       {
         :name         => 'Network 3',
         :vdc_name     => 'TestVDC',
@@ -83,7 +83,7 @@ describe Vcloud::NetLauncher::NetLaunch do
   end
 
   context "ConfigLoader returns one network without :fence_mode set" do
-    let!(:network_without_fence_mode) {
+    let(:network_without_fence_mode) {
       {
         :name         => 'Network w/o fence_mode',
         :vdc_name     => 'TestVDC',
