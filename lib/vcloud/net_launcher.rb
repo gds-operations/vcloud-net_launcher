@@ -11,5 +11,5 @@ require 'vcloud/net_launcher/version'
 require 'vcloud/fog'
 require 'vcloud/core'
 
+require 'vcloud/net_launcher/cli'
 require 'vcloud/net_launcher/net_launch'
-
