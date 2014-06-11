@@ -43,7 +43,7 @@ Usage: #{$0} [options] config_file
 vcloud-net-launch takes a configuration describing a vCloud network,
 and tries to make it a reality.
 
-See https://github.com/alphagov/vcloud-tools for more info
+See https://github.com/gds-operations/vcloud-tools for more info
 
 Example configuration files can be found in:
   #{examples_dir}
