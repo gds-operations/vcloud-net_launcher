@@ -25,13 +25,6 @@
 ````
 default: # This is the fog credential that refers to your testing environment, e.g. `test_credential`
   vdc_1_name: # The name of a VDC
-  catalog: # A catalog
-  vapp_template: # A vApp Template within that catalog
-  network_1: # The name of the primary network
-  network_1_ip: # The IP address of the primary network
-  network_2: # The name of a secondary network
-  network_2_ip: # The IP address of the secondary network
-  storage_profile: # The name of a storage profile
   edge_gateway: # The name of the edge gateway
 ````
 
