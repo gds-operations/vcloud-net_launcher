@@ -22,9 +22,8 @@ module Vcloud
           expect(provisioned_network[:isLinked]).to eq('false')
         end
 
-        it 'should create an nat routed network' do
+        it 'should create a nat routed network' do
           test_data = default_test_data('natRouted')
-          test_data[:edgeGateway] =  ENV['VCLOUD_EDGE_GATEWAY']  #only needed for natRouted networks
           @minimum_data_yaml = generate_data_file(test_data)
 
           Vcloud::NetLauncher::NetLaunch.new.run(@minimum_data_yaml)
@@ -50,9 +49,12 @@ module Vcloud
       end
 
       def default_test_data(type)
+        config_file = File.join(File.dirname(__FILE__), "../vcloud_tools_testing_config.yaml")
+        parameters = Vcloud::Tools::Tester::TestParameters.new(config_file)
         {
           network_name: "vapp-vcloud-tools-tests-#{Time.now.strftime('%s')}",
-          vdc_name: ENV['VCLOUD_VDC_NAME'],
+          vdc_name: parameters.vdc_1_name,
+          edge_gateway: parameters.edge_gateway,
           fence_mode: type,
           netmask: '255.255.255.0',
           gateway: '192.0.2.1',

@@ -24,6 +24,7 @@ end
 require 'erb_helper'
 require 'bundler/setup'
 require 'vcloud/net_launcher'
+require 'vcloud/tools/tester'
 
 RSpec.configure do |config|
   config.expect_with :rspec do |c|
