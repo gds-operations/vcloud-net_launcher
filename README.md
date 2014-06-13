@@ -116,25 +116,7 @@ Run the integration tests (slower and requires a real environment):
     bundle exec rake integration
 
 You need access to a suitable vCloud Director organization to run the
-integration tests. It is not necessarily safe to run them against an existing
-environment, unless care is taken with the entities being tested.
-
-The easiest thing to do is create a local shell script called
-`vcloud_env.sh` and set the contents:
-
-    export FOG\_CREDENTIAL=test
-    export VCLOUD\_VDC\_NAME="Name of the VDC"
-    export VCLOUD\_CATALOG\_NAME="catalog-name"
-    export VCLOUD\_TEMPLATE\_NAME="name-of-template"
-    export VCLOUD\_NETWORK1\_NAME="name-of-primary-network"
-    export VCLOUD\_NETWORK2\_NAME="name-of-secondary-network"
-    export VCLOUD\_NETWORK1\_IP="ip-on-primary-network"
-    export VCLOUD\_NETWORK2\_IP="ip-on-secondary-network"
-    export VCLOUD\_TEST\_STORAGE\_PROFILE="storage-profile-name"
-    export VCLOUD\_EDGE\_GATEWAY="name-of-edge-gateway-in-vdc"
-
-Then run this before you run the integration tests.
+integration tests. See the [integration tests README](/spec/integration/README.md) for further details.
 
 [example_yaml]: ../examples/vcloud-net-launch/
 [fog]: http://fog.io/
-
