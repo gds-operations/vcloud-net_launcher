@@ -79,11 +79,7 @@ GUI and re-run `vcloud-net-launch`.
 
 ## Contributing
 
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+We welcome contributions. Please see the [contributing guidelines](/CONTRIBUTING.md).
 
 ## Other settings
 
@@ -117,6 +113,3 @@ Run the integration tests (slower and requires a real environment):
 
 You need access to a suitable vCloud Director organization to run the
 integration tests. See the [integration tests README](/spec/integration/README.md) for further details.
-
-[example_yaml]: ../examples/vcloud-net-launch/
-[fog]: http://fog.io/
