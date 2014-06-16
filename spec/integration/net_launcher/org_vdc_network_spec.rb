@@ -147,13 +147,12 @@ describe Vcloud::Core::OrgVdcNetwork do
   end
 
   def define_test_data
-    [ 'VCLOUD_VDC_NAME', 'VCLOUD_EDGE_GATEWAY' ].each do |n|
-      raise "Need #{n} set" unless ENV[n]
-    end
+    config_file = File.join(File.dirname(__FILE__), "../vcloud_tools_testing_config.yaml")
+    parameters = Vcloud::Tools::Tester::TestParameters.new(config_file)
     {
       :name => "orgVdcNetwork-vcloud-tools-tests #{Time.now.strftime('%s')}",
-      :vdc_name => ENV['VCLOUD_VDC_NAME'],
-      :edge_gateway_name => ENV['VCLOUD_EDGE_GATEWAY'],
+      :vdc_name => parameters.vdc_1_name,
+      :edge_gateway_name => parameters.edge_gateway,
     }
   end
 
