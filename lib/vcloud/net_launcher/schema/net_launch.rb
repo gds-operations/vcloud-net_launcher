@@ -60,11 +60,11 @@ module Vcloud
                     required: true,
                     internals: {
                       start_address: {
-                        type: 'string',
+                        type: 'ip_address',
                         required: true,
                       },
                       end_address: {
-                        type: 'string',
+                        type: 'ip_address',
                         required: true,
                       },
                     },
