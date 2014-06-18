@@ -144,7 +144,8 @@ describe Vcloud::NetLauncher::Cli do
       let(:args) { %w{non-existent.yaml} }
 
       it "raises a descriptive error" do
-        expect(subject.stderr).to eq("No such file or directory - non-existent.yaml")
+        # Use a regex match as a workaround to https://bugs.ruby-lang.org/issues/9285
+        expect(subject.stderr).to match(/\ANo such file or directory/)
         expect(subject.exitstatus).to eq(1)
       end
     end
