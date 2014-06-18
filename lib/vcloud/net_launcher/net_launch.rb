@@ -9,7 +9,7 @@ module Vcloud
       end
 
       def run(config_file = nil, options = {})
-        config = @config_loader.load_config(config_file)
+        config = @config_loader.load_config(config_file, Vcloud::NetLauncher::Schema::NET_LAUNCH)
 
         if options[:mock] || ENV['FOG_MOCK']
           ::Fog.mock!
