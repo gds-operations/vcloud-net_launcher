@@ -148,7 +148,7 @@ describe Vcloud::Core::OrgVdcNetwork do
 
   def define_test_data
     config_file = File.join(File.dirname(__FILE__), "../vcloud_tools_testing_config.yaml")
-    parameters = Vcloud::Tools::Tester::TestParameters.new(config_file)
+    parameters = Vcloud::Tools::Tester::TestSetup.new(config_file, []).test_params
     {
       :name => "orgVdcNetwork-vcloud-tools-tests #{Time.now.strftime('%s')}",
       :vdc_name => parameters.vdc_1_name,
