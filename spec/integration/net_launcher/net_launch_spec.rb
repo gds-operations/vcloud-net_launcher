@@ -50,7 +50,9 @@ module Vcloud
 
       def default_test_data(type)
         config_file = File.join(File.dirname(__FILE__), "../vcloud_tools_testing_config.yaml")
-        parameters = Vcloud::Tools::Tester::TestSetup.new(config_file, []).test_params
+        required_user_params = %w{ vdc_1_name edge_gateway }
+
+        parameters = Vcloud::Tools::Tester::TestSetup.new(config_file, required_user_params).test_params
         {
           network_name: "vapp-vcloud-tools-tests-#{Time.now.strftime('%s')}",
           vdc_name: parameters.vdc_1_name,
