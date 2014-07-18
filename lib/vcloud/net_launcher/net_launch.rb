@@ -8,6 +8,7 @@ module Vcloud
         @config_loader = Vcloud::Core::ConfigLoader.new
       end
 
+      # Parses a configuration file and provisions the networks it defines.
       def run(config_file = nil, options = {})
         config = @config_loader.load_config(config_file, Vcloud::NetLauncher::Schema::NET_LAUNCH)
 

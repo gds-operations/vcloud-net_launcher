@@ -4,6 +4,8 @@ module Vcloud
   module NetLauncher
     class Cli
 
+      # Returns an instance of +Cli+, which handles parsing of command-line
+      # arguments and acts as an entry point for the main application logic.
       def initialize(argv_array)
         @usage_text = nil
         @config_file = nil
@@ -14,6 +16,8 @@ module Vcloud
         parse(argv_array)
       end
 
+      # Runs +Vcloud::NetLauncher::NetLaunch#run+ to create networks defined
+      # in +@config_file+, catching any exceptions to prevent printing a backtrace.
       def run
         begin
           Vcloud::NetLauncher::NetLaunch.new.run(@config_file, @options)
