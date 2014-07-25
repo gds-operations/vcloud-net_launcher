@@ -1,3 +1,8 @@
+## 0.4.0 (2014-07-25)
+
+  - Remove the command line option to enable fog mocking.
+  - Add documentation for public API methods.
+
 ## 0.3.0 (2014-07-14)
 
 Features:
