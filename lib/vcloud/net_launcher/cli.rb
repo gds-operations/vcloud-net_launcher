@@ -11,9 +11,6 @@ module Vcloud
       def initialize(argv_array)
         @usage_text = nil
         @config_file = nil
-        @options = {
-          "mock" => false,
-        }
 
         parse(argv_array)
       end
@@ -24,7 +21,7 @@ module Vcloud
       # @return [void]
       def run
         begin
-          Vcloud::NetLauncher::NetLaunch.new.run(@config_file, @options)
+          Vcloud::NetLauncher::NetLaunch.new.run(@config_file)
         rescue => error_msg
           $stderr.puts(error_msg)
           exit 1
@@ -59,10 +56,6 @@ Example configuration files can be found in:
 
           opts.separator ""
           opts.separator "Options:"
-
-          opts.on("-m", "--mock", "Fog Mock mode enabled") do
-            @options["mock"] = true
-          end
 
           opts.on("-h", "--help", "Print usage and exit") do
             $stderr.puts opts

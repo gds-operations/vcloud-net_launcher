@@ -40,29 +40,13 @@ describe Vcloud::NetLauncher::Cli do
         expect(Vcloud::NetLauncher::NetLaunch).to receive(:new).
           and_return(mock_net_launch)
         expect(mock_net_launch).to receive(:run).
-          with(config_file, cli_options)
+          with(config_file)
         expect(subject.exitstatus).to eq(0)
       end
     end
 
     context "when given a single config file" do
       let(:args) { [ config_file ] }
-      let(:cli_options) {
-        {
-          "mock" => false,
-        }
-      }
-
-      it_behaves_like "a good CLI command"
-    end
-
-    context "when asked to use mock mode" do
-      let(:args) { [ config_file, "--mock" ] }
-      let(:cli_options) {
-        {
-          "mock" => true,
-        }
-      }
 
       it_behaves_like "a good CLI command"
     end
