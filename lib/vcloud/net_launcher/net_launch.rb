@@ -14,14 +14,9 @@ module Vcloud
       # Parses a configuration file and provisions the networks it defines.
       #
       # @param  config_file [String]  Path to a YAML or JSON-formatted configuration file
-      # @param  options     [Hash]    Runtime options
       # @return [void]
-      def run(config_file = nil, options = {})
+      def run(config_file = nil)
         config = @config_loader.load_config(config_file, Vcloud::NetLauncher::Schema::NET_LAUNCH)
-
-        if options[:mock] || ENV['FOG_MOCK']
-          ::Fog.mock!
-        end
 
         config[:org_vdc_networks].each do |net_config|
           net_config[:fence_mode] ||= 'isolated'

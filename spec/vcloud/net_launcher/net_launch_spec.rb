@@ -48,7 +48,7 @@ describe Vcloud::NetLauncher::NetLaunch do
       expect(Vcloud::Core::OrgVdcNetwork).to receive(:provision).with(network2)
       expect(Vcloud::Core::OrgVdcNetwork).to receive(:provision).with(network3)
 
-      subject.run('input_config_yaml', cli_options)
+      subject.run('input_config_yaml')
     end
 
     it "should abort on errors from Vcloud::Core" do
@@ -58,25 +58,8 @@ describe Vcloud::NetLauncher::NetLaunch do
       expect(Vcloud::Core::OrgVdcNetwork).not_to receive(:provision).with(network3)
 
       expect {
-        Vcloud::NetLauncher::NetLaunch.new.run('input_config_yaml', cli_options)
+        Vcloud::NetLauncher::NetLaunch.new.run('input_config_yaml')
       }.to raise_error(RuntimeError, 'Did not successfully create orgVdcNetwork')
-    end
-
-    describe "fog mocking" do
-      it "should not mock fog by default" do
-        expect(Fog).to_not receive(:mock!)
-        expect(Vcloud::Core::OrgVdcNetwork).to receive(:provision).exactly(3).times
-
-        subject.run('input_config_yaml', cli_options)
-      end
-
-      it "should mock fog when passed option" do
-        expect(Fog).to receive(:mock!)
-        expect(Vcloud::Core::OrgVdcNetwork).to receive(:provision).exactly(3).times
-
-        cli_options = { :mock => true }
-        subject.run('input_config_yaml', cli_options)
-      end
     end
 
   end
@@ -108,7 +91,7 @@ describe Vcloud::NetLauncher::NetLaunch do
       expect(network_without_fence_mode).not_to have_key(:fence_mode)
       expect(Vcloud::Core::OrgVdcNetwork).to receive(:provision).with(network_with_fence_mode)
 
-      subject.run('input_config_yaml', cli_options)
+      subject.run('input_config_yaml')
     end
   end
 end
