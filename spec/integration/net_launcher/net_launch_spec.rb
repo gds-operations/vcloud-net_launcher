@@ -40,9 +40,9 @@ module Vcloud
         after(:each) do
           unless ENV['VCLOUD_TOOLS_RSPEC_NO_DELETE_VAPP']
             File.delete @minimum_data_yaml
-            fog_interface = Vcloud::Fog::ServiceInterface.new
+            api_interface = Vcloud::Core::ApiInterface.new
             provisioned_network_id = @found_networks[0][:href].split('/').last
-            expect(fog_interface.delete_network(provisioned_network_id)).to be(true)
+            expect(api_interface.delete_network(provisioned_network_id)).to be(true)
           end
         end
 

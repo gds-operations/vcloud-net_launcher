@@ -1,5 +1,3 @@
-require 'fog'
-
 module Vcloud
   module NetLauncher
     class NetLaunch

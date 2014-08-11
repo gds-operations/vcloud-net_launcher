@@ -69,7 +69,7 @@ describe Vcloud::Core::OrgVdcNetwork do
 
     after(:all) do
       unless ENV['VCLOUD_TOOLS_RSPEC_NO_DELETE_ORG_VDC_NETWORK']
-        Vcloud::Fog::ServiceInterface.new.delete_network(@net.id) if @net
+        Vcloud::Core::ApiInterface.new.delete_network(@net.id) if @net
       end
     end
 
@@ -140,7 +140,7 @@ describe Vcloud::Core::OrgVdcNetwork do
 
     after(:all) do
       unless ENV['VCLOUD_TOOLS_RSPEC_NO_DELETE_ORG_VDC_NETWORK']
-        Vcloud::Fog::ServiceInterface.new.delete_network(@net.id) if @net
+        Vcloud::Core::ApiInterface.new.delete_network(@net.id) if @net
       end
     end
 
