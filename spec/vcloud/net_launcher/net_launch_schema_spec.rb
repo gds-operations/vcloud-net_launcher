@@ -2,12 +2,33 @@ require 'spec_helper'
 
 describe Vcloud::NetLauncher do
   context "NetLaunch schema validation" do
-    it "validates a legal schema" do
+    it "validates a legal minimal schema" do
       test_config = {
         :org_vdc_networks => [
           :name     =>  "Valid network",
           :vdc_name =>  "Some vDC"
         ]
+      }
+
+      validator = Vcloud::Core::ConfigValidator.validate(:base, test_config, Vcloud::NetLauncher::Schema::NET_LAUNCH)
+      expect(validator.valid?).to be_true
+      expect(validator.errors).to be_empty
+    end
+
+    it "validates a legal more complete schema" do
+      test_config = {
+        :org_vdc_networks => [ {
+          :name        =>  "Valid network",
+          :description => "A description of this network",
+          :vdc_name    =>  "Some vDC",
+          :fence_mode  =>  "isolated",
+          :is_shared   =>  true,
+          :gateway     =>  "192.0.2.1",
+          :netmask     =>  "255.255.255.0",
+          :dns_suffix  =>  "mynet.example.com",
+          :dns1        =>  "192.0.2.11",
+          :dns2        =>  "192.0.2.12",
+        }]
       }
 
       validator = Vcloud::Core::ConfigValidator.validate(:base, test_config, Vcloud::NetLauncher::Schema::NET_LAUNCH)

@@ -1,3 +1,7 @@
+## CURRENT
+
+  - Fix schema bug preventing use of 'description', 'is_shared', 'dns_suffix' options
+
 ## 0.5.1 (2014-08-12)
 
   - Upgrade dependency on vCloud Core to 0.10.0 for parity with other vCloud

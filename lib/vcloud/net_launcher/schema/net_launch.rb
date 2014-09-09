@@ -15,6 +15,10 @@ module Vcloud
                   type: 'string',
                   required: true,
                 },
+                description: {
+                  type: 'string',
+                  required: false,
+                },
                 edge_gateway: {
                   type: 'string',
                   required: false,
@@ -27,6 +31,10 @@ module Vcloud
                   type: 'enum',
                   required: false,
                   acceptable_values: %w{ isolated natRouted },
+                },
+                is_shared: {
+                  type: 'boolean',
+                  required: false,
                 },
                 is_inherited: {
                   type: 'boolean',
@@ -42,6 +50,10 @@ module Vcloud
                 },
                 netmask: {
                   type: 'ip_address',
+                  required: false,
+                },
+                dns_suffix: {
+                  type: 'string',
                   required: false,
                 },
                 dns1: {
