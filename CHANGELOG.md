@@ -1,6 +1,9 @@
-## CURRENT
+## 0.6.0 (2014-09-11)
 
   - Fix schema bug preventing use of 'description', 'is_shared', 'dns_suffix' options
+  - Upgrade dependency on vCloud Core to 0.11.0 which prevents plaintext
+    passwords in FOG_RC. Please use tokens via vcloud-login as per
+    the documentation: http://gds-operations.github.io/vcloud-tools/usage/
 
 ## 0.5.1 (2014-08-12)
 
