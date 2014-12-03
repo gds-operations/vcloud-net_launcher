@@ -1,3 +1,9 @@
+## UNRELEASED
+
+Features:
+
+  - Update vCloud Core to 0.16.0 for `vcloud-logout` utility.
+
 ## 0.7.0 (2014-10-15)
 
 Features:
