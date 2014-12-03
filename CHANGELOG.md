@@ -1,4 +1,4 @@
-## UNRELEASED
+## 0.8.0 (2014-12-03)
 
 Features:
 
