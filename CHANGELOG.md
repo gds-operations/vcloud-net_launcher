@@ -6,7 +6,7 @@
 
   - Release 1.0.0 since the public API is now stable.
   - Use vCloud Core 1.0.0 since it is now stable.
-  - Use vCloud tools tester 1.0.0 since it is not stable.
+  - Use vCloud tools tester 1.0.0 since it is now stable.
 
 ## 0.8.0 (2014-12-03)
 
