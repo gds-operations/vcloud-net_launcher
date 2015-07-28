@@ -5,6 +5,10 @@ module Vcloud
       NET_LAUNCH = {
         type: 'hash',
         internals: {
+          anchors: {
+            type: 'hash',
+            required: false,
+          },
           org_vdc_networks: {
             type: 'array',
             required: true,

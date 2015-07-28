@@ -48,6 +48,21 @@ describe Vcloud::NetLauncher do
       expect(validator.errors).to eq(["base: parameter 'no_networks_here' is invalid", "base: missing 'org_vdc_networks' parameter"])
     end
 
+    it "allows anchors" do
+      test_config = {
+        :anchors => {
+          foo: :bar,
+        },
+        :org_vdc_networks => [
+          :name       =>  "Valid network",
+          :vdc_name   =>  "Some vDC",
+        ]
+      }
+      validator = Vcloud::Core::ConfigValidator.validate(:base, test_config, Vcloud::NetLauncher::Schema::NET_LAUNCH)
+      expect(validator.valid?).to be_true
+      expect(validator.errors).to be_empty
+    end
+
     it "allows multiple IP ranges" do
       test_config = {
         :org_vdc_networks => [
