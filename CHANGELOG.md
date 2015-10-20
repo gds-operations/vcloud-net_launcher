@@ -1,6 +1,9 @@
-## Unreleased
+## 2.0.0 (2015-10-20)
 
   - Remove support for Ruby 1.9.3, which is now end-of-life.
+  - Allow anchors to be created under a dedicated key
+  - Relax dependency on vCloud Core to make it easier to install alongside
+    other vCloud gems.
 
 ## 1.0.1 (2015-07-22)
 
