@@ -14,28 +14,28 @@ org_vdc_networks:
   fence_mode: natRouted
   edge_gateway: Gateway-FRONTEND
   netmask: 255.255.255.0
-  gateway: 192.0.2.1
+  gateway: 192.168.2.1
   dns1: 8.8.8.8
   dns2: 8.8.4.4
   dns_suffix: testing.example.com
   ip_ranges:
-    - start_address: 192.0.2.11
-      end_address: 192.0.2.40
-    - start_address: 192.0.2.101
-      end_address: 192.0.2.140
+    - start_address: 192.168.2.11
+      end_address: 192.168.2.40
+    - start_address: 192.168.2.101
+      end_address: 192.168.2.140
 
 - name: example-net-isolated-shared
   vdc_name: 'Our vDC'
   fence_mode: isolated
   is_shared: true
   netmask: 255.255.255.0
-  gateway: 198.51.100.1
+  gateway: 192.168.100.1
   dns1: 8.8.8.8
   dns2: 8.8.4.4
   dns_suffix: testing.example.com
   ip_ranges:
-    - start_address: 198.51.100.11
-      end_address: 198.51.100.40
-    - start_address: 198.51.100.101
-      end_address: 198.51.100.140
+    - start_address: 192.168.100.11
+      end_address: 192.168.100.40
+    - start_address: 192.168.100.101
+      end_address: 192.168.100.140
 
