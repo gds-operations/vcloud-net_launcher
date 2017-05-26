@@ -46,7 +46,7 @@ GUI and re-run `vcloud-net-launch`.
 
 ## Contributing
 
-We welcome contributions. Please see the [contributing guidelines](/CONTRIBUTING.md).
+Please see the [contributing guidelines](/CONTRIBUTING.md).
 
 ## Other settings
 
