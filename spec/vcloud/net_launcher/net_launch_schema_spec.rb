@@ -11,7 +11,7 @@ describe Vcloud::NetLauncher do
       }
 
       validator = Vcloud::Core::ConfigValidator.validate(:base, test_config, Vcloud::NetLauncher::Schema::NET_LAUNCH)
-      expect(validator.valid?).to be_true
+      expect(validator.valid?).to be true
       expect(validator.errors).to be_empty
     end
 
@@ -32,7 +32,7 @@ describe Vcloud::NetLauncher do
       }
 
       validator = Vcloud::Core::ConfigValidator.validate(:base, test_config, Vcloud::NetLauncher::Schema::NET_LAUNCH)
-      expect(validator.valid?).to be_true
+      expect(validator.valid?).to be true
       expect(validator.errors).to be_empty
     end
 
@@ -44,7 +44,7 @@ describe Vcloud::NetLauncher do
       }
 
       validator = Vcloud::Core::ConfigValidator.validate(:base, test_config, Vcloud::NetLauncher::Schema::NET_LAUNCH)
-      expect(validator.valid?).to be_false
+      expect(validator.valid?).to be false
       expect(validator.errors).to eq(["base: parameter 'no_networks_here' is invalid", "base: missing 'org_vdc_networks' parameter"])
     end
 
@@ -59,7 +59,7 @@ describe Vcloud::NetLauncher do
         ]
       }
       validator = Vcloud::Core::ConfigValidator.validate(:base, test_config, Vcloud::NetLauncher::Schema::NET_LAUNCH)
-      expect(validator.valid?).to be_true
+      expect(validator.valid?).to be true
       expect(validator.errors).to be_empty
     end
 
@@ -82,7 +82,7 @@ describe Vcloud::NetLauncher do
       }
 
       validator = Vcloud::Core::ConfigValidator.validate(:base, test_config, Vcloud::NetLauncher::Schema::NET_LAUNCH)
-      expect(validator.valid?).to be_true
+      expect(validator.valid?).to be true
       expect(validator.errors).to be_empty
     end
 
@@ -100,7 +100,7 @@ describe Vcloud::NetLauncher do
       }
 
       validator = Vcloud::Core::ConfigValidator.validate(:base, test_config, Vcloud::NetLauncher::Schema::NET_LAUNCH)
-      expect(validator.valid?).to be_false
+      expect(validator.valid?).to be false
       expect(validator.errors).to eq(["ip_ranges: missing 'end_address' parameter"])
     end
   end
