@@ -1,3 +1,10 @@
+## 2.1.0 (2017-06-23)
+
+  - Removed support for Ruby older than 2.2.2
+  - Added support for Ruby 2.3.0 and 2.4.0
+  - Updated dependency on new version of vCloud Core
+  - Various bug fixes
+
 ## 2.0.0 (2015-10-20)
 
   - Remove support for Ruby 1.9.3, which is now end-of-life.
